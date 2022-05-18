@@ -44,10 +44,10 @@ public class Controller implements Initializable {
             chatArea.appendText("[" + currentUser + "]: " + text + System.lineSeparator());
             userMessage.clear();
         } catch (NullPointerException e) {
-
-                chatArea.appendText("Broadcast: " + text + System.lineSeparator());
-                userMessage.clear();
-
+        if (currentUser == null || currentUser.isBlank()) {
+            chatArea.appendText("Broadcast: " + text + System.lineSeparator());
+            userMessage.clear();
+        }
         }
 //        chatArea.appendText("Broadcast: " + text + System.lineSeparator());
 //        userMessage.clear();
