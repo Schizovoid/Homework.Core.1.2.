@@ -24,7 +24,7 @@ public class Controller implements Initializable {
     private TextArea chatArea;
     @FXML
     private Button btnSend;
-    private String currentUser;
+    private String chosenUser = "default";
 
     public void mockAction(ActionEvent actionEvent) {
         System.out.println("mock");
@@ -34,24 +34,28 @@ public class Controller implements Initializable {
         Platform.exit();
     }
 
+    public void viewManual (ActionEvent actionEvent){
+
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle("Manual");
+    alert.setContentText("Press Send to send a message!");
+    alert.showAndWait();
+    }
+
     public void sendMessage(ActionEvent actionEvent) {
         String text = userMessage.getText();
         if (text == null || text.isBlank()) {
             return;
         }
-
-        try {
-            chatArea.appendText("[" + currentUser + "]: " + text + System.lineSeparator());
+        if (!(chosenUser.equals("default"))) {
+            chatArea.appendText("[" + chosenUser + "]: " + text + System.lineSeparator());
             userMessage.clear();
-        } catch (NullPointerException e) {
-        if (currentUser == null || currentUser.isBlank()) {
+        } else {
             chatArea.appendText("Broadcast: " + text + System.lineSeparator());
             userMessage.clear();
         }
         }
-//        chatArea.appendText("Broadcast: " + text + System.lineSeparator());
-//        userMessage.clear();
-                   }
+
             @Override
             public void initialize (URL location, ResourceBundle Resources){
                 String[] userContacts = {"Vasya", "Masha", "Petya", "Valera", "Nastya"};
@@ -60,7 +64,7 @@ public class Controller implements Initializable {
                 contacts.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
                     @Override
                     public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                       currentUser = contacts.getSelectionModel().getSelectedItem();
+                       chosenUser = contacts.getSelectionModel().getSelectedItem();
                     }
                 });
             }

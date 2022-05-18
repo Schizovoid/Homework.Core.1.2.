@@ -12,7 +12,7 @@
             <MenuItem onAction="#closeApplication" text="Close" />
         </Menu>
         <Menu text="Help">
-            <MenuItem onAction="#mockAction" text="View Manual" />
+            <MenuItem onAction="#viewManual" text="View Manual" />
         </Menu>
     </MenuBar>
     <HBox VBox.vgrow="ALWAYS">
