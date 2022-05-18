@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Homework.JavaCore2.Homework4.Controller">
+<VBox fx:id="main" visible="true">
+    <MenuBar>
+        <Menu text="App">
+            <MenuItem onAction="#mockAction" text="Open" />
+            <MenuItem onAction="#closeApplication" text="Close" />
+        </Menu>
+        <Menu text="Help">
+            <MenuItem onAction="#mockAction" text="View Manual" />
+        </Menu>
+    </MenuBar>
+    <HBox VBox.vgrow="ALWAYS">
+        <ListView fx:id="contacts" prefHeight="400.0" prefWidth="150.0">
+            <HBox.margin>
+                <Insets left="6.0" right="6.0" />
+            </HBox.margin>
+        </ListView>
+        <TextArea fx:id="chatArea" editable="false" prefHeight="400.0" prefWidth="700.0" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+            <HBox.margin>
+                <Insets left="6.0" right="6.0" />
+            </HBox.margin>
+        </TextArea>
+        <VBox.margin>
+            <Insets bottom="12.0" top="5.0" />
+        </VBox.margin>
+    </HBox>
+    <HBox VBox.vgrow="ALWAYS">
+    <TextField fx:id="userMessage" onAction="#sendMessage" prefHeight="65.0" HBox.hgrow="ALWAYS">
+        <HBox.margin>
+            <Insets left="6.0" right="6.0" />
+        </HBox.margin>
+    </TextField>
+    <Button fx:id="btnSend" minWidth="150.0" onAction="#sendMessage" prefHeight="65.0" text="SEND">
+        <HBox.margin>
+            <Insets left="6.0" right="6.0" />
+        </HBox.margin>
+    </Button>
+    <VBox.margin>
+        <Insets bottom="5.0" />
+    </VBox.margin>
+</HBox>
+
+</VBox>
+</AnchorPane>
